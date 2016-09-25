@@ -1,0 +1,577 @@
+
+// Fonts
+@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,600'
+
+// Assets
+@import 'bourbon/bourbon'
+@import 'neat/neat'
+@import 'bootstrap/bootstrap'
+
+// Variables
+$main-color: #a41e21
+
+// // Responsive variables
+$mobile: new-breakpoint(max-width 544px)
+$tablet: new-breakpoint(min-width 768px)
+$large: new-breakpoint(min-width 992px)
+$ex-large: new-breakpoint(min-width 1200px)
+
+
+
+body
+	margin: 0
+	padding: 0
+	font-family: 'Roboto'  
+	*, *:before, *:after
+		font-family: 'Roboto'
+		padding: 0
+		margin: 0
+html 
+	box-sizing: border-box
+
+*, *:before, *:after 
+	box-sizing: inherit
+
+.btn
+	background-color: $main-color
+	color: #FFF
+	padding: 10px 30px
+	text-decoration: none
+	font-size: 0.8em
+	transition: 150ms all ease-in-out
+	text-align: center
+	&:hover
+		background-color: lighten($main-color, 5%) 
+		color: #fff 
+	&:active
+		background-color: darken($main-color, 5%) 
+
++keyframes(leftIn)
+	from
+		left: -20%
+		opacity: 0
+	to
+		left: 0
+		opacity: 1
+		
++keyframes(fadeOut)
+	from
+		opacity: 1
+	to
+		opacity: 0
+		display: none
+		z-index: -9999
+
+
+.cover
+	width: 100%
+	height: 100%
+	position: fixed
+	top: 0
+	left: 0
+	background-color: #FFF 
+	z-index: 99999999999 
+	+animation(fadeOut 1s ease-in-out)
+	+animation-fill-mode(forwards)
+	+animation-delay(1s)
+	.load
+		position: absolute
+		top: 50%
+		left: 50%
+		+transform(translate(-50%, -50%))
+		z-index: 1000 !important
+
+.left
+	width: 20%
+	height: 100vh
+	background: url(../img/patt.png) lighten($main-color, 60%)
+	position: fixed
+	top: 0
+	left: 0 
+	box-shadow: 0 0 50px 0 rgba(#000, 0.25) 
+	z-index: 2 
+	padding: 20px
+	+media($mobile)
+		width: 100% !important
+		position: static
+	+media($tablet)
+		width: 40%
+	+media($large)
+		width: 30% !important
+	+media($ex-large)
+		width: 20% !important
+	.logo
+		width: 100%
+		float: left
+		margin: 30px 0 
+		text-align: center
+		img
+			width: 60%
+			margin: 0 auto
+			display: block
+	.urnik
+		width: 100%
+		float: left
+		margin: 20px 0 0
+		h2
+			font-size: 1.4em
+			color: $main-color  
+		p
+			color: rgba(#000, 0.8)
+			font-weight: 700  
+			padding: 10px 0 
+	.placilo
+		width: 100%
+		float: left
+		margin: 20px 0 
+		h2
+			font-size: 1.4em
+			color: $main-color  
+			margin-bottom: 5px
+		ul
+			width: 100%
+			list-style: none
+			padding: 0
+			margin: 20px 0 0 
+			li
+				width: 33.333%
+				height: 100px
+				float: left
+				position: relative
+				padding: 0 20px 
+				*
+					width: 70%
+					position: absolute
+					top: 50%
+					transform: translateY(-50%)
+				i
+					font-size: 2em
+					color: green  
+	.lokacije
+		width: 100%
+		float: left
+		margin: 20px 0 
+		h2
+			font-size: 1.4em
+			color: $main-color  
+			margin-bottom: 5px
+		ul
+			list-style: none
+			li
+				width: 100%
+				float: left
+				&.active
+					a
+						font-weight: 600
+						color: #000 
+				a
+					padding: 5px 0
+					float: left
+					width: 100%
+					text-decoration: none
+					color: rgba(#000, 0.8) 
+					&:hover
+						color: #000
+				&:last-child
+					a
+						cursor: default
+						color: rgba(#000, 0.5) 
+	.ponudba-btn
+		width: 100%
+		float: left
+		margin: 30px 0 0 
+		padding: 15px 0 
+					
+	
+.right
+	width: 80%
+	min-height: 100vh
+	background-color: rgba($main-color, 0.09)
+	position: absolute
+	top: 0
+	left: 20%
+	padding: 20px 30px
+	margin: 0
+	z-index: 1
+	+media($mobile)
+		width: 100%
+		position: static
+		float: left
+	+media($tablet)
+		width: 60%
+		left: 40%
+	+media($large)
+		width: 70%
+		left: 30%
+	+media($ex-large)
+		width: 80%
+		left: 20%
+	.lokacija
+		width: 50%
+		float: left
+		+media($mobile)
+			width: 100%
+		+media($tablet)
+			width: 100%
+		+media($large)
+			width: 50%
+		+media($ex-large)
+			width: 50%
+		.img
+			width: 100%
+			float: left
+			-webkit-background-size: cover 
+			-o-background-size: cover 
+			background-size: cover 
+			background-position: center 
+			height: calc(50vh - 50px)
+			margin-bottom: 20px
+			position: relative
+			.info
+				position: absolute
+				left: 0
+				bottom: 0
+				width: 100%
+				height: 120px
+				padding: 45px 20px 0
+				+linear-gradient(transparent, #000)
+				h3
+					color: #FFF
+					font-size: 1.5em
+					font-weight: 600   
+					margin-bottom: 3px
+				h4
+					color: rgba(#fff, 0.7) 
+					font-size: 1.1em
+					font-weight: 400 
+		#gmap
+			width: 100%
+			height: calc(50vh - 30px)
+			float: left
+			padding: 10px
+			background-color: #FFF 
+			-webkit-box-shadow: 0 5px 30px 0 rgba(#000, 0.2) 
+			box-shadow: 0 5px 30px 0 rgba(#000, 0.2) 
+	.ponudba
+		width: 50%
+		float: left
+		padding-left: 30px
+		position: relative
+		+media($mobile)
+			width: 100%
+			margin-top: 40px
+			padding: 0
+		+media($tablet)
+			width: 100%
+			margin-top: 40px
+			padding: 0
+		+media($large)
+			width: 50%
+			margin-top: 0
+			padding-left: 30px
+		+media($ex-large)
+			width: 50%
+			margin-top: 0
+			padding-left: 30px
+		.nav-tabs
+			width: 100%
+			top: 0
+			position: relative
+			z-index: 15
+			background-color: #FFF 
+			float: left
+			-webkit-border-top-left-radius: 3px 
+			border-top-left-radius: 3px 
+			-webkit-border-bottom-right-radius: 3px 
+			border-bottom-right-radius: 3px 
+			+media($mobile)
+				border: 1px solid rgba(#000, 0.2)
+			li
+				position: relative
+				padding: 0
+				float: left
+				text-align: center
+				+media($mobile)
+					width: 100%
+					float: left
+				&.active
+					a
+						font-weight: 700
+				a
+					cursor: pointer
+					padding: 10px 50px !important
+					color: $main-color 
+					float: left
+					width: 100%
+					+media($mobile)
+						padding: 15px 0 !important
+				&:hover
+					background-color: #FFF 
+					ul
+						display: inline
+				ul
+					position: absolute
+					width: 100%
+					left: 0
+					top: 42px
+					display: none
+					background-color: #FFF
+					box-shadow: 0 4px 20px 0 rgba(#000, 0.3)  
+					list-style: none
+					+media($mobile)
+						position: static
+						width: 100%
+						float: left
+						background-color: rgba(#000, 0.08) 
+						display: inline
+						box-shadow: none
+					li
+						width: 100%
+						float: left
+						padding: 8px 15px
+						margin-bottom: 3px 
+						cursor: pointer
+						color: rgba(#000, 0.7) 
+						text-align: center
+						&:hover
+							color: rgba(#000, 1) 
+							background-color: rgba(#000, 0.05) 
+						&.current
+							font-weight: 600 
+					
+		.tab-content
+			top: 0
+			width: 100%
+			padding: 10px
+			.tab-pane
+				width: auto 
+				float: left
+				background-color: $main-color
+				color: #FFF 
+				padding: 3px 7px
+				font-size: 0.8em 
+				cursor: pointer
+				margin-right: 5px
+				-webkit-border-radius: 3px 
+				border-radius: 3px 
+				opacity: 0.8
+				&.current
+					opacity: 1
+
+.izdelki
+	width: 100%
+	float: left
+	min-height: 500px
+	max-height: calc(100% - 42px)
+	-ms-overflow-y: auto 
+	overflow-y: auto 
+	position: relative
+	.ni-izdelkov
+		position: absolute
+		margin-top: 40px
+		left: 50%
+		+transform(translateX(-50%))
+		font-size: 1.15em
+		color: rgba(#000, 0.7)  
+	ul
+		list-style: none
+		padding: 0
+		margin: 0
+		li
+			float: left
+			width: 50%
+			padding: 20px 15px 
+			position: relative
+			+media($mobile)
+				width: 100%
+			.img
+				width: 100%
+				float: left
+				padding-bottom: 100%
+				background-color: rgba(#000, 0.1) 
+				-webkit-background-size: cover 
+				-o-background-size: cover 
+				background-size: cover 
+				background-position: center center 
+				overflow: hidden
+				.info
+					width: calc(100% - 30px)
+					height: 100px
+					position: absolute
+					left: 15px
+					bottom: 20px
+					+linear-gradient(transparent, rgba(#000, 0.7)) 
+					padding: 40px 20px 20px
+					+transition(200ms all ease-in-out)
+					h3
+						color: #fff
+						font-weight: 500
+						font-size: 1.6em   
+						margin: 0 0 5px
+						padding: 0
+					h4
+						font-size: 1.2em
+						color: rgba(#fff, 0.7)  
+						margin: 0
+						padding: 0
+.izdelek
+	width: 100%
+	float: left
+	background-color: #FFF 
+	-webkit-box-shadow: 0 5px 25px 0 rgba(#000, 0.2) 
+	box-shadow: 0 5px 25px 0 rgba(#000, 0.2) 
+	padding: 20px
+	.slika
+		-webkit-background-size: cover 
+		-o-background-size: cover 
+		background-size: cover
+		background-position: center
+		height: 40vh
+		float: left
+		+media($mobile)
+			width: 100%
+		+media($tablet)
+			width: 100%
+		+media($large)
+			width: 40%
+		+media($ex-large)
+			width: 40%
+	.info
+		height: 40vh
+		float: left
+		+media($mobile)
+			width: 100%
+		+media($tablet)
+			width: 100%
+		+media($large)
+			width: 60%
+			padding-left: 20px
+		+media($ex-large)
+			width: 60%
+			padding-left: 20px
+		header
+			width: 100%
+			float: left
+			background-color: $main-color
+			padding: 10px 20px 
+			h2
+				float: left
+				color: #fff 
+				font-size: 1.5em
+				font-weight: 700  
+				padding-top: 5px
+				+media($mobile)
+					width: 100%
+					float: left
+					text-align: center
+
+			.glasovi
+				width: 150px
+				list-style: none
+				padding: 0
+				float: right
+				margin: 0
+				height: 40px
+				+media($mobile)
+					width: 100%
+					margin-top: 10px
+				li
+					width: 20%
+					float: left
+					text-align: center
+					a
+						color: rgba(#fff, 0.85)
+						font-size: 1.6em 
+						&:hover
+							color: rgba(#fff, 1)
+		.seperator
+			float: left
+			width: 100%
+			color: rgba(#000, 0.6) 
+			font-size: 0.8em
+			margin-top: 10px
+			margin-bottom: 2px 
+
+		small
+			float: left
+			padding: 5px 
+		.ojoj
+			width: 100%
+			float: left
+			margin: 10px 0
+			.alert
+				float: left
+				display: block
+				clear: both
+				margin: 0
+				padding: 10px 20px
+				ul
+					list-style: none
+									
+.relevant
+	width: 100%
+	float: left
+	margin-top: 30px
+	ul
+		float: left
+		width: 100%
+		li
+			width: 20%
+			float: left
+			height: 250px
+			position: relative
+			overflow: hidden
+			+media($mobile)
+				width: 100%
+			+media($tablet)
+				width: 50%
+			+media($large)
+				width: 50%
+			+media($ex-large)
+				width: 20%
+			&:hover
+				.info
+					display: inline
+			.img
+				height: 250px
+				bottom: 0
+				&:hover
+					.info
+						display: inline
+				.info
+					height: 50%
+					bottom: -20px !important
+					
+
+
+
++keyframes(spin)
+	0%
+		transform: rotate(0deg)
+	100%
+		transform: rotate(360deg)
+
+
+.load
+	width: calc(100% - 30px)
+	height: 600px
+	position: absolute
+	+transition(300ms all ease-in-out)
+	opacity: 0
+	z-index: -10 !important
+	top: 50px
+	&.open
+		opacity: 1
+		z-index: 99 !important
+	.loader
+		border-radius: 50%
+		width: 24px
+		height: 24px
+		border: .25rem solid lighten($main-color, 40%);
+		border-top-color: $main-color
+		animation: spin 1s infinite linear
+		position: absolute
+		top: 50%
+		left: 50%
+		+transform(translate(-50%, -50%))
+		+transition(300ms all ease-in-out)
