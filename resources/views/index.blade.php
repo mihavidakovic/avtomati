@@ -4,7 +4,7 @@
 <div class="lokacija">
 	<div class="img" style="background-image: url({{$lokacija->slika}});">
 		<div class="info">
-			<h3>{{$lokacija->ime}}</h3>
+			<h3>{{$lokacija->ime}} 123</h3>
 			<h4>{{$lokacija->naslov}}</h4>
 		</div>
 	</div>
